@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductsController extends Controller
-
-
+class BooksController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = product::all(); 
-        return view('products.index',compact('products'));    
+        //
     }
 
     /**
@@ -31,16 +27,13 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
-        $product->name = $request->product_name;
-        $product->price = $request->product_price;
-        
-        $product->stock = $request->product_stock;
-        $product->save();
-        return redirect()->route('products.index');
-        
-
+        $book = new Book();
+        $book -> title = $request->title_book;
+        $book -> author = $request->author_book;
+        $book -> category = $request->category_book;
+        $book -> save();
     }
+    
 
     /**
      * Display the specified resource.

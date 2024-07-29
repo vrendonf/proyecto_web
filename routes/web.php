@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\BooksController;
 
-Route::get('/products', [ProductsController::class, 'index']);
-Route::post('/products', [ProductsController::class, 'store']) ->name('products.store');
+Route::post('/books',[BooksController::class,'store'])->name('books.store');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', function() {
+    return view('books');
+});
+
